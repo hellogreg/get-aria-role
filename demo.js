@@ -88,7 +88,7 @@
 
   function init() {
     console.clear();
-    group("rha11y-get-role results");
+    group("getAriaRole() results");
     const elements = getAllElements(document.body);
     getRoles(elements);
     groupEnd();
