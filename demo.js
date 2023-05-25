@@ -51,7 +51,6 @@
         }
         //dir(element);
       }
-      dir(element);
       groupEnd();
     }
   }
