@@ -1,5 +1,7 @@
 # get-aria-role
 
+[View the demo page](https://hellogreg.github.io/get-aria-role/)
+
 in the course of accessibility work, there are cases where it could be handy to know what implicit or computed ARIA role an element has. Unfortunately, there's no native way to get this value with JavaScript in most browsers.
 
 (_Explicitly_ declared roles can be gleaned via `element.role` or `element.getAttribute("role")`.)
