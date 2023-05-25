@@ -2,34 +2,6 @@
 // https://www.w3.org/TR/html-aam-1.0/#html-element-role-mappings
 
 (function () {
-  // Returns an element we can use, whether shadow DOM or not
-
-  function isHtmlElementDisplayNone(element) {
-    // List from here: https://www.w3.org/TR/2014/REC-html5-20141028/rendering.html#hidden-elements
-    const displayNoneElements = [
-      "area",
-      "base",
-      "basefont",
-      "datalist",
-      "head",
-      "link",
-      "meta",
-      "noembed",
-      "noframes",
-      "noscript",
-      "param",
-      "rp",
-      "script",
-      "source",
-      "style",
-      "template",
-      "track",
-      "title"
-    ];
-    let isDisplayNone = displayNoneElements.includes(element.tagName.toLowerCase());
-    return isDisplayNone;
-  }
-
   const selectorsAndRoles = [
     { selector: "a", role: "generic", specificity: "001" },
     { selector: "a[href]", role: "link", specificity: "011" },
@@ -210,7 +182,7 @@
   //       - Can first-child help us guess? or JS colspan and rowspan?
   //   * Do we need to account for th elements that are not headers and are in grid tables? Weird combo!
 
-  function getImplicitRole(element) {
+  window.getImplicitRole = function (element) {
     let matchedSelector = false;
     for (let selectorInfo of selectorsAndRoles) {
       if (
@@ -228,12 +200,22 @@
     }
 
     return false;
-  }
+  };
   // TODO: Account for custom elements (including form-associated) being "generic"?
 
-  function getExplicitRole(element) {
+  window.getExplicitRole = function (element) {
     const explicitRole = element.role || element.getAttribute("role") || undefined;
     return explicitRole;
-  }
+  };
   // TODO: Block disallowed roles for elements?
+
+  window.getAriaRole = function (element) {
+    const implicitRole = getImplicitRole(element);
+    const explicitRole = getExplicitRole(element);
+    let ariaRole = implicitRole;
+    if (explicitRole) {
+      ariaRole = explicitRole;
+    }
+    return ariaRole;
+  };
 })();

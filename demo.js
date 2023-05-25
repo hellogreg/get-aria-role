@@ -37,23 +37,20 @@
   function getRoles(elements) {
     for (let element of elements) {
       group(`${element.tagName.toLowerCase()} role info`);
-      /*
+
       const implicitRole = getImplicitRole(element);
       const explicitRole = getExplicitRole(element);
-      let ariaRole = implicitRole;
-      if (explicitRole) {
-        ariaRole = explicitRole;
-      }
+      const ariaRole = getAriaRole(element);
       if (element) {
         log(`${element.id} (implicit): ${implicitRole}`);
         log(`${element.id} (explicit): ${explicitRole}`);
         log(`${element.id} (computed aria): ${ariaRole}`);
+        // Check for Chrome's flagged computedRole property
         if (element.computedRole !== undefined) {
           log(`${element.id} (Chrome computed): ${element.computedRole}`);
         }
         //dir(element);
       }
-      */
       dir(element);
       groupEnd();
     }
