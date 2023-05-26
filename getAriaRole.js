@@ -1,5 +1,6 @@
 // W3C Role mappings:
 // https://www.w3.org/TR/html-aam-1.0/#html-element-role-mappings
+// Current as of May 19, 2023.
 
 (function () {
   const selectorsAndRoles = [
@@ -175,22 +176,22 @@
   //       - e.g., the order of the select element selectors above matters.
   //   * img with alt="" has "img" role (not "presentation") in Chrome's computedRole. W3C disagrees.
   //   * computedRole also gives null for default td role. INTERESTING.
-  //   * Some elements can have different roles with accesisble names: aside, section.
+  //   * Some elements can have different roles with accessible names: aside, section.
   //   * Do we want a field for permitted roles? e.g., select can sometimes have have "menu" role.
   //   * Select has different roles based on the number value of its size attribute.
   //   * How do we know if a th is rowheader or columnheader without scope?
   //       - Can first-child help us guess? or JS colspan and rowspan?
-  //   * Do we need to account for th elements that are not headers and are in grid tables? Weird combo!
+  //   * Do we need to account for th elements that are not headers but are in grid tables? Weird combo!
 
   window.getImplicitRole = function (element) {
-    let matchedSelector = false;
+    let matchedSelector;
     for (let selectorInfo of selectorsAndRoles) {
+      // If this is the first match, use it!
+      // If it's a subsequent match, use it if >= specificity.
       if (
         element.matches(selectorInfo.selector) &&
-        (!matchedSelector || selectorInfo.specificity >= matchedSelector.specificity)
+        (matchedSelector === undefined || selectorInfo.specificity >= matchedSelector.specificity)
       ) {
-        // If this is the first match, use it!
-        // If it's a subsequent match, use it if >= specificity.
         matchedSelector = selectorInfo;
       }
     }
@@ -207,7 +208,7 @@
     const explicitRole = element.role || element.getAttribute("role") || undefined;
     return explicitRole;
   };
-  // TODO: Block disallowed roles for elements?
+  // TODO: Flag disallowed roles for elements?
 
   window.getAriaRole = function (element) {
     const implicitRole = getImplicitRole(element);
