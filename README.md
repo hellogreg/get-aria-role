@@ -8,7 +8,7 @@ in the course of accessibility work, there are cases where it could be handy to 
 
 (_Explicitly_ declared roles can be gleaned via `element.role` or `element.getAttribute("role")`.)
 
-Chromium does have the [computedRole property](https://chromestatus.com/feature/5530552681627648) for elements, but it's behind a flag--and they apparently [don't plan on unflagging it](https://bugs.chromium.org/p/chromium/issues/detail?id=442978). It also may not be reliable in all cases (e.g., it can return a `gridcell` role value for `td` elements, by default, even when the `td` is in a `table` without a `grid` role).
+Chromium does have the [computedRole property](https://chromestatus.com/feature/5530552681627648) for elements, but it's behind a flag -- and they apparently [don't plan on unflagging it](https://bugs.chromium.org/p/chromium/issues/detail?id=442978). It also may not be reliable in all cases (e.g., it can return a `gridcell` role value for `td` elements, by default, even when the `td` is in a `table` without a `grid` role).
 
 get-aria-role comprises the following three global functions:
 
