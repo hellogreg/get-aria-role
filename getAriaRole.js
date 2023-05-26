@@ -180,12 +180,10 @@
   //       - Can first-child help us guess? or JS colspan and rowspan?
   //   * Do we need to account for th elements that are not headers but are in grid tables? Weird combo!
 
-  // Optional returnFullSelector param returns full selector object, not just the role value.
+  // This function is for dev purposes, to show which selector is being used.
   window.getWinningSelector = function (element) {
     let matchedSelector;
     for (let selectorInfo of selectorsAndRoles) {
-      // If this is the first match, use it!
-      // If it's a subsequent match, use it if >= specificity.
       if (
         element.matches(selectorInfo.selector) &&
         (matchedSelector === undefined || selectorInfo.specificity >= matchedSelector.specificity)
