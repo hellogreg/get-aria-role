@@ -11,14 +11,21 @@
   </head>
   <body>
     <div class="page">
-      <h1><span class="rh-text">getAriaRole()</span> demo</h1>
+      <h1><span class="rh-text">getAriaRole</span> demo</h1>
+      <p>
+        getAriaRole gets the implicit, explicit, and computed ARIA roles for an HTML element.
+      </p>
       <p>
         This demo page includes all the elements (and selector variants) from the
         <a href="https://www.w3.org/TR/html-aam-1.0/#html-element-role-mappings"
-          >W3C's HTML role mappings table</a
+          >W3C's HTML role mappings</a
         >
-        (as of its 5/19/2023 update). Check your browser console to see the values of all this page
+        (current as of its 5/19/2023 update).
+      </p>
+      <p>
+          Check your browser console to see the values of all this page
         elements' implicit, explicit, and computed ARIA roles.
+      </p>
       </p>
       <div id="test-content">
         <a></a>
@@ -30,8 +37,9 @@
         <article></article>
         <aside></aside>
         <article class="ignore"><aside></aside></article>
-        <nav class="ignore"><aside></aside></nav>
         <aside class="ignore"><aside></aside></aside>
+        <nav class="ignore"><aside></aside></nav>
+        <section class="ignore"><aside></aside></section>
         <audio></audio>
         <b></b>
         <base />

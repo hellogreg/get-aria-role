@@ -13,11 +13,10 @@
     { selector: "area[href]", role: "link", specificity: "011" },
     { selector: "article", role: "article", specificity: "001" },
     { selector: "aside", role: "complementary", specificity: "001" },
-    {
-      selector: "article aside, aside aside, nav aside, section aside",
-      role: "generic",
-      specificity: "002"
-    },
+    { selector: "article aside", role: "generic", specificity: "002" },
+    { selector: "aside aside", role: "generic", specificity: "002" },
+    { selector: "nav aside", role: "generic", specificity: "002" },
+    { selector: "section aside", role: "generic", specificity: "002" },
     { selector: "audio", role: null, specificity: "001" },
     { selector: "b", role: "generic", specificity: "001" },
     { selector: "base", role: null, specificity: "001" },
@@ -49,11 +48,11 @@
     { selector: "figcaption", role: null, specificity: "001" },
     { selector: "figure", role: "figure", specificity: "001" },
     { selector: "footer", role: "contentinfo", specificity: "001" },
-    {
-      selector: "main footer, article footer, aside footer, nav footer, section footer",
-      role: "generic",
-      specificity: "002"
-    },
+    { selector: "main footer", role: "generic", specificity: "002" },
+    { selector: "article footer", role: "generic", specificity: "002" },
+    { selector: "aside footer", role: "generic", specificity: "002" },
+    { selector: "nav footer", role: "generic", specificity: "002" },
+    { selector: "section footer", role: "generic", specificity: "002" },
     { selector: "form", role: "form", specificity: "001" },
     { selector: "h1", role: "heading", specificity: "001" },
     { selector: "h2", role: "heading", specificity: "001" },
@@ -63,11 +62,11 @@
     { selector: "h6", role: "heading", specificity: "001" },
     { selector: "head", role: null, specificity: "001" },
     { selector: "header", role: "banner", specificity: "001" },
-    {
-      selector: "main header, article header, aside header, nav header, section header",
-      role: "generic",
-      specificity: "002"
-    },
+    { selector: "main header", role: "generic", specificity: "002" },
+    { selector: "article header", role: "generic", specificity: "002" },
+    { selector: "aside header", role: "generic", specificity: "002" },
+    { selector: "nav header", role: "generic", specificity: "002" },
+    { selector: "section header", role: "generic", specificity: "002" },
     { selector: "hgroup", role: "group", specificity: "001" },
     { selector: "hr", role: "separator", specificity: "001" },
     { selector: "html", role: "document", specificity: "001" },
@@ -150,11 +149,8 @@
     { selector: "table", role: "table", specificity: "001" },
     { selector: "tbody", role: "rowgroup", specificity: "001" },
     { selector: "td", role: "cell", specificity: "001" },
-    {
-      selector: "table[role='grid'] td, table[role='treegrid'] td",
-      role: "gridcell",
-      specificity: "011"
-    },
+    { selector: "table[role='grid'] td", role: "gridcell", specificity: "011" },
+    { selector: "table[role='treegrid'] td", role: "gridcell", specificity: "011" },
     { selector: "template", role: null, specificity: "001" },
     { selector: "textarea", role: "textarea", specificity: "001" },
     { selector: "tfoot", role: "rowgroup", specificity: "001" },

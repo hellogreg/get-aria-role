@@ -37,7 +37,8 @@
   function getRoles(elements) {
     for (let element of elements) {
       if (!element.matches(".ignore")) {
-        group(`${element.tagName.toLowerCase()} role info`);
+        const currentSelector = getWinningSelector(element);
+        group(`Selector: ${currentSelector}`);
 
         const implicitRole = getImplicitRole(element);
         const explicitRole = getExplicitRole(element);
