@@ -1,5 +1,6 @@
 // W3C Role mappings:
 // https://www.w3.org/TR/html-aam-1.0/#html-element-role-mappings
+// https://www.w3.org/TR/html-aria/
 // Current as of May 19, 2023.
 
 (function () {
@@ -200,9 +201,10 @@
       return matchedSelector.role;
     }
 
-    return false;
+    return "generic";
   };
   // TODO: Account for custom elements (including form-associated) being "generic"?
+  // Is generic the right default? Seems that's what Chromiums computedRole does.
 
   window.getExplicitRole = function (element) {
     const explicitRole = element.role || element.getAttribute("role") || undefined;

@@ -61,12 +61,6 @@ svg {
   }
 }
 
-.bg-image {
-  background-image: url("testbgimg.jpg");
-  background-size: cover;
-  height: 10rem;
-}
-
 .book-link {
   background-color: #fff;
   border-radius: 0.25rem;
@@ -81,6 +75,11 @@ svg {
 
 .rh-text {
   color: #d00;
+}
+
+#test-content {
+  height: 1rem !important;
+  width: 1rem !important;
 }
 
 .visually-hidden:not(:focus):not(:active) {

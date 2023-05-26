@@ -36,22 +36,26 @@
 
   function getRoles(elements) {
     for (let element of elements) {
-      group(`${element.tagName.toLowerCase()} role info`);
+      if (!element.matches(".ignore")) {
+        group(`${element.tagName.toLowerCase()} role info`);
 
-      const implicitRole = getImplicitRole(element);
-      const explicitRole = getExplicitRole(element);
-      const ariaRole = getAriaRole(element);
-      if (element) {
-        log(`${element.id} (implicit): ${implicitRole}`);
-        log(`${element.id} (explicit): ${explicitRole}`);
-        log(`${element.id} (computed aria): ${ariaRole}`);
+        const implicitRole = getImplicitRole(element);
+        const explicitRole = getExplicitRole(element);
+        const ariaRole = getAriaRole(element);
+
+        log(`(implicit): ${implicitRole}`);
+        log(`(explicit): ${explicitRole}`);
+        log(`(computed aria): ${ariaRole}`);
         // Check for Chrome's flagged computedRole property
         if (element.computedRole !== undefined) {
-          log(`${element.id} (Chrome computed): ${element.computedRole}`);
+          log(`(Chrome computed): ${element.computedRole}`);
+          if (element.computedRole !== ariaRole) {
+            log(`MISMATCH: ${ariaRole} | ${element.computedRole}`);
+          }
         }
         //dir(element);
+        groupEnd();
       }
-      groupEnd();
     }
   }
 
@@ -88,10 +92,9 @@
 
   function init() {
     console.clear();
-    group("getAriaRole() results");
-    const elements = getAllElements(document.body);
+    //const elements = getAllElements(document.body);
+    const elements = getAllElements(document.getElementById("test-content"));
     getRoles(elements);
-    groupEnd();
   }
 
   window.addEventListener("DOMContentLoaded", init);
