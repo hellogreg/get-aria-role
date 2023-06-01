@@ -2,6 +2,10 @@
 // https://www.w3.org/TR/html-aam-1.0/#html-element-role-mappings
 // https://www.w3.org/TR/html-aria/
 // Current as of May 19, 2023.
+//
+// https://www.npmjs.com/package/aria-query
+// https://github.com/search?q=repo%3Amicrosoft%2Fplaywright%20getFullAXTree&type=code
+//
 
 (function () {
   const selectorsAndRoles = [
