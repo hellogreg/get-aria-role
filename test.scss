@@ -1,0 +1,95 @@
+/* 
+    MINI RESET 
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  color: #111;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+#page {
+  background: #fff;
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 98vw;
+  width: 66ch;
+
+  article + article {
+    margin-top: 3rem;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #e00;
+  outline-offset: 3px;
+}
+
+/*
+    End Mini-reset
+*/
+
+.perma-heading {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+
+  h2 > a {
+    color: #00e;
+    position: relative;
+    text-decoration: none;
+
+    // We could make .perma-signifier a visually-hidden element instead,
+    // if we'd prefer screen readers read it even when it doesn't have focus.
+    // - OR -
+    // We could use :after on the link to display this content, if we don't want
+    // it to show when CSS is disabled. This could cause translation issues.
+    // But I wouldn't call it a WCAG failure under F87. Support is good.
+    // https://a11ysupport.io/tests/tech__css__css_generated_content_link
+    // https://adrianroselli.com/2019/02/f87-css-generated-content-and-wcag-conformance.html
+    //
+    .perma-signifier {
+      display: none;
+    }
+
+    &:focus-within {
+      color: #e00;
+      .perma-signifier {
+        display: initial;
+      }
+    }
+
+    &:hover {
+      color: #e00;
+      text-decoration: underline;
+      &::before {
+        content: "#";
+        position: absolute;
+        left: -1.5rem;
+        top: -0.125rem;
+      }
+    }
+  }
+
+  // The copy button does not display unless JavaScript loads.
+  // If we want to make it so it doesn't display if both CSS and JavaScript
+  // are unavailable, we can build the button in JS in the first place.
+  //
+  button {
+    display: none;
+    height: 1.75rem;
+  }
+}

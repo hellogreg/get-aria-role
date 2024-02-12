@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>In-page heading permalinks</title>
+    <link rel="canonical" href="https://codepen.io/hellogreg/pen/NWEPppE" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="test.css" rel="stylesheet" />
+    <script src="test.js"></script>
+  </head>
+
+  <body>
+    <div id="page">
+      <h1>In-page heading permalinks</h1>
+
+      <article>
+        <div class="perma-heading">
+          <h2 id="overview">
+            <a href="#overview">Overview <span class="perma-signifier">(permalink)</span></a>
+          </h2>
+          <button aria-label="Copy link to clipboard" class="perma-button">🔗</button>
+          <p class="perma-status" aria-live="polite"></p>
+        </div>
+        <p>An accordion is a stacked list of panels...</p>
+
+        <div class="perma-heading">
+          <h2 id="demos">
+            <a href="#demos">Demos <span class="perma-signifier">(permalink)</span></a>
+          </h2>
+          <button aria-label="Copy link to clipboard" class="perma-button">🔗</button>
+          <p class="perma-status" aria-live="polite"></p>
+        </div>
+        <p>View a live version of this component...</p>
+      </article>
+      <article>
+        <h2>About this demo</h2>
+        <p>
+          This proof-of-concept explores options for accessible in-page permalinks. It offers
+          options for mouse, keyboard, and assistive tech users -- with or without JavaScript.
+        </p>
+        <h3>For mouse users (no JS needed):</h3>
+        <p>
+          Hovering over a heading causes a hash (#) symbol to appear to the left of the text, as
+          happens at sites like MDN to signal that this is a permalink. Users can right-click to get
+          the link URL.
+        </p>
+        <h3>For keyboard and/or screen reader users (no JS needed):</h3>
+        <p>
+          Placing keyboard focus on the heading cases it to be appended with the "(permalink)," so
+          users will know they are on a permalink. This appended text could be visually-hidden, if
+          we don't want visual users to see it.
+        </p>
+        <p>
+          Unfortunately, there's no native shortcut to get a focused link's URL directly via
+          keyboard (I don't think). However, that doesn't mean assistive tech users can't get these
+          heading permalinks! In Mac VoiceOver with Safari, pressing Ctrl-Option-Shift-M opens the
+          context menu (like right-clicking) on the currently focused item. You can then use the
+          arrow keys and return to get the link. And Chrome and Firefox have extensions that add
+          this functionality.
+        </p>
+        <h3>Copy URL button for mouse and keyboard users (requires JS):</h3>
+        <p>
+          A copy URL button appears next to the heading text when JavaScript is available. Visually,
+          the button has a link symbol. It has an aria-label="Copy link to clipboard" attribute.
+          Activating the button does just what that aria-label says! Next to the button is an empty
+          (by default) status region with an aria-live attribute, which updates upon copying via the
+          button.
+        </p>
+      </article>
+    </div>
+  </body>
+</html>
